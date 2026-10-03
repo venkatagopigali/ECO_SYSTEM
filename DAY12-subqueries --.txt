@@ -1,0 +1,62 @@
+subqueries :--
+
+single row
+multi row
+multi column 
+nested        :-- here we have more then one inner query 
+correlated    :-- here the inner query will take the help outer query to form the condition after condition formed give return the result based on condition
+
+==========================================================================
+use ecosystem;
+
+select * from emp;
+
+set sql_safe_updates=0;
+
+update emp set salary=73000 where name='amit';
+
+select * from emp where salary=
+(select distinct salary from emp order by salary desc limit 1 offset 2);
+
+
+select * from emp where salary=
+(select max(salary) from emp where salary<
+(select max(salary) from emp));
+
+select * from emp where salary=
+(select max(salary) from emp where salary<
+(select max(salary) from emp where salary<
+(select max(salary) from emp)));
+
+with cte as(
+select *,dense_rank() over(order by salary desc) as r from emp
+)
+select * from cte where r=20;
+
+select * from emp;
+
+select * from emp where salary>
+(select avg(salary) from emp);
+
+select * from emp as e where salary<
+(select avg(salary) from emp where department=e.department);
+
+select * from emp as e where salary<
+(select max(salary) from emp where department=e.department);
+
+select * from emp where salary>
+(select avg(salary) from emp);
+
+select * from emp where age<
+(select min(age) from emp where department='sales');
+
+select * from emp order by age;
+
+select * from emp where city=
+(select city from emp where name='ravi');
+
+select * from emp where department in
+(select distinct department from emp where salary>70000);
+
+select * from emp where department in
+(select department from emp group by department having max(salary)>70000);
