@@ -1,0 +1,129 @@
+checking the connection between two table:----
+--------------------------------------------
+drop    :-- it performed on main table 
+insert  :-- it performed on sub table
+
+0	15	21:27:49	drop table admin	Error Code: 3730. Cannot drop table 'admin' referenced by a foreign key constraint 'sports_ibfk_1' on table 'sports'.	0.000 sec
+
+0	23	21:36:24	insert into librery values(1,'maths','2025-01-01 6:9:10','2026-01-01 7:8:9')	Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`ecosystem`.`librery`, CONSTRAINT `librery_ibfk_1` FOREIGN KEY (`rollnum`) REFERENCES `student1` (`rollnum`))	0.016 sec
+
+
+joins :-- will used to extract the data from two or more table 
+
+inner join     :-- will return common values from both table 
+		>>>select * from table1 inner join table2 on table1.column_name=table2.column_name;
+left join      :-- will return all values from left table and common values from right table
+		>>>select * from table1 left join table2 on table1.column_name=table2.column_name;
+right join     :-- will return all values from right table and common values from left table
+		>>>select * from table1 right join table2 on table1.column_name=table2.column_name;
+outer join
+cross join
+self join
+natural join 
+
+==============================================================================================
+
+use ecosystem;
+
+select * from employees;
+
+select department,avg(salary) from employees group by department having avg(salary)>60000;
+
+select count(null);
+
+show tables;
+
+select * from admin;
+
+select * from sports;
+
+desc admin;
+
+desc sports;
+
+drop table admin;
+
+drop table sports;
+
+show tables;
+
+select * from student1;
+
+insert into student1 values(2,'ravi','cse');
+
+select * from librery;
+
+insert into librery values(2,'science','2025-01-01 6:9:10','2026-01-01 7:8:9');
+
+show tables;
+
+drop table balayya;
+
+create table admin(
+stu_id int primary key,
+name varchar(100),
+age int
+);
+
+create table exam(
+hallticket int primary key,
+subject varchar(100),
+doe date
+);
+
+create table student2(
+stu_id int,
+hallticket int,
+marks int,
+grade varchar(100),
+foreign key (stu_id) references admin(stu_id),
+foreign key (hallticket) references exam(hallticket)
+);
+
+create table customers(
+cus_id int primary key,
+name varchar(100),
+age int,
+occupation varchar(100)
+);
+
+create table insurence(
+cus_id int,
+insurence_name varchar(100),
+policy_type varchar(100),
+foreign key (cus_id) references customers(cus_id)
+);
+
+select * from customers;
+insert into customers values(1,'mani',25,'student');
+
+insert into customers values(2,'mounika',21,'student'),
+(3,'kiran',24,'student'),
+(4,'kowshik',28,'lecturer'),
+(5,'divya',21,'student');
+
+select * from customers;
+
+select * from insurence;
+insert into insurence values(1,'HDFC','health insurnce');
+
+insert into insurence values(3,'SBI','Life insurence'),
+(4,'icici','bike insurence');
+
+select * from insurence;
+
+select * from insurence where policy_type='life insurence';
+
+select * from customers;
+
+select * from customers where age=28;
+
+select customers.name from customers inner join insurence on customers.cus_id=insurence.cus_id where insurence.policy_type='bike insurence';
+
+select * from customers left join insurence on customers.cus_id=insurence.cus_id where insurence.insurence_name='SBI';
+
+select * from insurence left join customers on insurence.cus_id=customers.cus_id;
+
+select * from customers right join insurence on customers.cus_id=insurence.cus_id;
+
+select * from insurence right join customers on insurence.cus_id=customers.cus_id;

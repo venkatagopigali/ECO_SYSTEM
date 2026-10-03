@@ -1,0 +1,118 @@
+ddl :
+-------------------------
+create 
+
+table creation :
+--------------------------
+>>>create table table_name(
+column_name datatype,
+column_name datatype
+);
+
+
+datatypes :-- will identify the which data it is
+---------------------------------------------------
+number    :-- will accepts numerical type of data
+-----------------------------------------------
+int            :-- will used to store the number without decimal
+			>>>4 bytes  >>>(2**31)-1
+bigint         :-- will used to store the number without decimal
+			>>>8 bytes  >>>(2**63)-1
+float          :-- will used to store the number with decimal 
+			>>>4 bytes  >>>(2**31)-1
+			>>>will accepts 5 values after decimal point
+double         :-- will used to store the number with decimal 
+			>>>8 bytes  >>>(2**63)-1
+			>>>will accepts more then 5 after decimal point
+decimal(s,p)   :-- will used to store the number with decimal 
+			>>>we can select no.of values after decimal 
+
+string     :-- will accepts text type of data or collection of character 
+		character :-- a single letter (alphabets,number,special symbols)
+----------------------------------------------
+varchar(size)  :-- will used to store the text type of data
+			>>>255
+char(size)     :-- will used to store the text type of data
+			>>>255
+			>>>fixed size
+text           :-- will used to store the text type of data
+
+
+date  :-- will used to store the date and time type data
+---------------------------------------------------------
+date       :-- will used to store date type of data
+time       :-- will used to store time type of data
+datetime   :-- will used to store dateandtime type of data
+
+
+
+alter 
+rename
+truncate
+drop
+
+
+===============================================================================
+show databases;
+
+use ecosystem;
+
+show tables;
+
+create table student(
+id int,
+name text,
+dept text,
+marks int,
+doj date,
+mobile int
+);
+
+show tables;
+
+select * from student;
+
+create table emp(
+emp_id int,
+name text,
+salary decimal(10,2),
+doj date
+);
+
+show tables;
+
+select * from emp;
+
+create table num(
+id int,
+mobile bigint
+);
+
+select * from num;
+
+describe num;
+
+insert into num values(2147483647,2147483648);
+
+create table stu1(
+rating float,
+rank_ double,
+salary decimal(20,16)   
+);
+
+insert into stu1 values(1.23421374622484832828,1.23421374622484832828,1.23421374622484832828);
+
+select * from stu1;
+
+create table example(
+name varchar(100),
+phone char(10),
+address text
+);
+
+insert into example values("sai","1234567890","qwertyuiopcfs sfxd qwtqcxgqwfxcreqwcxqdsdfvbnmd,mwndbcrwxcwqxrqwcdgvqwcexdqwcfxqdx d qxxreqce	sr d	zexsqrqeds qewrsd qwesrqsc xqwezxwrq seqwrxewsx wrqwertyuioplqwertyuioplsmnxbvcfdredsaksmnbcvfrewdcsvfxredscvgwr       qesx qwerxzqwc xeqrwxeqwxqexdwq xrqwtgsrxe");
+
+insert into example values("gopi","0987654321","Hyderabad");
+
+select * from example;
+

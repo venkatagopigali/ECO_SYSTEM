@@ -1,0 +1,217 @@
+aggregate functions :-- will convert the multiple cell information to single 			cell of information
+
+sum()     :-- will add the all numbers (+) 
+min()     :-- will return lowest values (<,>)
+max()     :-- will return highest value (<,>)
+avg()     :-- will calculate the sum of observation / no.of observation 
+count()   :-- will count no.of cells contain data
+
+>>>select agg(column_name) from table_name;
+
+>>>select count(*) from table_name;
+
+
+keys :-- will used to establish the connection between two or more table 
+------------------------------------------------------------------------
+primary key    :-- will mention which column is available to build the connection
+			>>> unique + not null
+
+>>>create table table_name1(
+column_name1 datatype primary key,
+column_name2 datatype,
+column_name3 datatype
+);
+
+
+
+foreign key  :-- will used to build the connection between two table 
+
+>>>create table table_name2(
+column_name1 datatype,
+column_name4 datatype,
+column_name5 datatype,
+foreign key (column_name1) references table_name1(column_name1)
+); 
+
+
+
+
+
+
+
+composite key
+
+============================================================================
+
+use ecosystem;
+
+
+CREATE TABLE Employees (
+EmpID INT PRIMARY KEY,
+Name VARCHAR(50),
+Department VARCHAR(30),
+Salary DECIMAL(10,2),
+Age INT,
+City VARCHAR(30),
+JoiningDate DATE
+);
+
+
+INSERT INTO Employees VALUES
+(101, 'Alice', 'HR', 45000, 25, 'Hyderabad', '2022-01-10'),
+(102, 'Bob', 'IT', 70000, 30, 'Chennai', '2021-06-15'),
+(103, 'Charlie', 'Finance', 55000, 28, 'Bangalore', '2020-08-20'),
+(104, 'David', 'IT', 80000, 35, 'Hyderabad', '2019-03-12'),
+(105, 'Eva', 'HR', 48000, 27, 'Mumbai', '2023-02-18'),
+(106, 'Frank', 'Sales', 60000, 31, 'Delhi', '2021-11-25'),
+(107, 'Grace', 'Finance', 75000, 29, 'Chennai', '2018-09-10'),
+(108, 'Henry', 'Sales', 52000, 26, 'Bangalore', '2022-07-05'),
+(109, 'Ivy', 'IT', 90000, 32, 'Mumbai', '2017-05-30'),
+(110, 'Jack', 'HR', 47000, 24, 'Delhi', '2023-01-12');
+
+select * from employees;
+
+select * from employees where salary>=50000 and salary<=80000 order by age desc;
+
+select * from employees where joiningdate>'2021-01-01' order by joiningdate desc;
+
+select * from employees;
+
+select * from employees where name like 'a%';
+
+CREATE TABLE e_commerce_orders (
+order_id INT PRIMARY KEY,
+customer_name VARCHAR(100),
+product_name VARCHAR(100),
+quantity INT,
+price DECIMAL(10, 2),
+total_amount DECIMAL(10, 2),
+order_date DATE
+);
+
+-- Insert sample data (20 rows) with customer names like Ravi
+INSERT INTO e_commerce_orders (order_id, customer_name, product_name, quantity, price, total_amount, order_date)
+VALUES
+(1, 'Ravi Kumar', 'Smartphone', 1, 699.99, 699.99, '2025-10-01'),
+(2, 'Amit Sharma', 'Laptop', 1, 999.99, 999.99, '2025-10-02'),
+(3, 'Raj Patel', 'Headphones', 2, 49.99, 99.98, '2025-10-03'),
+(4, 'Neha Gupta', 'Smartwatch', 1, 199.99, 199.99, '2025-10-04'),
+(5, 'Priya Mehta', 'Tablet', 1, 329.99, 329.99, '2025-10-05'),
+(6, 'Vikram Singh', 'Keyboard', 1, 89.99, 89.99, '2025-10-06'),
+(7, 'Sonia Reddy', 'Mouse', 2, 19.99, 39.98, '2025-10-07'),
+(8, 'Ravi Sharma', 'Monitor', 1, 249.99, 249.99, '2025-10-08'),
+(9, 'Ananya Iyer', 'Phone Case', 3, 15.99, 47.97, '2025-10-09'),
+(10, 'Karan Joshi', 'Smartphone', 2, 699.99, 1399.98, '2025-10-10'),
+(11, 'Maya Desai', 'Gaming Console', 1, 399.99, 399.99, '2025-10-11'),
+(12, 'Rohit Kapoor', 'Speakers', 2, 79.99, 159.98, '2025-10-12'),
+(13, 'Simran Chawla', 'Laptop', 1, 849.99, 849.99, '2025-10-13'),
+(14, 'Amitabh Reddy', 'Smartwatch', 1, 199.99, 199.99, '2025-10-14'),
+(15, 'Tanya Gupta', 'Smartphone', 1, 799.99, 799.99, '2025-10-15'),
+(16, 'Harish Kaur', 'Tablet', 1, 299.99, 299.99, '2025-10-16'),
+(17, 'Deepak Singh', 'Keyboard', 2, 69.99, 139.98, '2025-10-17'),
+(18, 'Neelam Verma', 'Headphones', 1, 89.99, 89.99, '2025-10-18'),
+(19, 'Kunal Joshi', 'Gaming Console', 1, 499.99, 499.99, '2025-10-19'),
+(20, 'Pooja Shah', 'Monitor', 1, 199.99, 199.99, '2025-10-20');
+
+
+select * from e_commerce_orders where customer_name like 'r%';
+
+select distinct customer_name from e_commerce_orders where product_name='smartphone';
+
+select order_id from e_commerce_orders where  product_name!='smartphone';
+
+select *,right(customer_name,3) from e_commerce_orders;
+
+select * from employees;
+
+select sum(salary) from employees;
+
+select sum(age) from employees;
+
+select sum(name) from employees;
+
+select * from employees;
+
+select min(salary) from employees;
+
+select min(name) from employees;
+
+select sum(salary),min(salary),max(salary) from employees;
+
+select max(salary) from employees;
+
+select max(age) from employees;
+
+create table avg1(
+sno int,
+name varchar(100),
+age int
+);
+
+insert into avg1 values(1,'gouthami',21),
+(2,'kiran',23),
+(3,'hari',null),
+(4,'bobby',null),
+(5,'priya',24);
+
+select * from avg1;
+
+select avg(age) from avg1;
+
+select count(age) from avg1;
+
+select count(age) from avg1;
+
+select count(*) from avg1;
+
+select count(1) from avg1;
+
+select count(-1) from avg1;
+
+
+-- --> what is difference *,1,-1 
+
+
+select *,age is not null from avg1;
+
+select count(-1);
+
+select * from employees;
+
+select sum(salary),min(salary),max(salary),avg(salary),count(salary) from employees;
+
+create table admin(
+id int primary key,
+name varchar(100),
+age int,
+email varchar(100)
+);
+
+desc admin;
+
+create table sports(
+id int,
+name varchar(100),
+kit_type varchar(100),
+sport_type varchar(100),
+foreign key (id) references admin(id)
+);
+
+
+create table student1(
+rollnum int primary key,
+name varchar(100),
+department varchar(100)
+);
+
+create table librery(
+rollnum int,
+book_name varchar(100),
+dor datetime,
+doreturn datetime,
+foreign key (rollnum) references student1(rollnum)
+);
+
+
+-- insert method
+-- drop method

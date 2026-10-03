@@ -1,0 +1,138 @@
+dml :-- data manipulation language :-- will used to perform operation on table data
+
+insert   :-- will add the new data i.e record to table data
+
+single record :
+-----------------------------
+>>>insert into table_name values(v1,v2,v3-----);
+
+multiple records :--
+------------------------
+>>>insert into table_name values(v1,v2,v3----),(v1,v2,v3---),(v1,v2,v3-----);
+
+selected column:
+--------------------------
+>>>insert into table_name(column_name1,column_name2) values(v1,v2);
+
+update    :-- will used to modify existing data 
+----------------------------------------------------
+
+before using update or delete we need disable security options:
+----------------------------------------------------------------
+>>>set sql_safe_updates=0
+
+to enable :--
+---------------------
+>>>set sql_safe_updates=1;
+
+
+>>>update table_name set column_name=new_data where condition;
+
+>>>update table_name set column_name=new_data,column_name=new_data where condition;
+
+
+delete     :-- will used to delete the row based on condition
+---------------------------------------------------------------
+>>> delete from table_name where condition;
+
+
+
+operators :-- will used to perform operation between operands 
+-------------------------------------------------------------------
+
+airthemetic   :-- will used to perform mathematical operation 
+			(+,-,*,/,%)
+relational    :-- will used compare the two values 
+			(=,>=,<=,>,<,!= or <>) 
+logical       :-- will check the condition is true or false
+			and   :-- here all conditions must  be true
+			or    :-- here at least one condition must be true
+			not   :-- true --> false ,false --> true 
+
+membership    :-- will check the value is present or not in group of values
+			in     :-- will return true when values present 
+			not in :-- will return true when values is not present 
+
+identify      :-- will used compare the address
+			is     :-- will check the address are same or not
+			is not :-- will return true when address not same
+
+============================================================================
+
+use ecosystem;
+
+show tables;
+
+create table student(
+student_id int,
+name varchar(200),
+branch varchar(100),
+doj date,
+marks int
+);
+
+show tables;
+
+select * from student;
+
+insert into student values(1,"Narendra","CSE",'2026-06-01',90);
+
+insert into student values(2,"phani","ECE","2020-09-10",95);
+
+insert into student values(3,"mani","AIML","2024-12-10",98),
+(4,"hari","EEE","2026-12-24",90),
+(5,"sandeep","AIDS","2022-10-10",80);
+
+select * from student;
+
+insert into student(student_id,name,marks) values(6,"Raju",70);
+
+insert into student(branch,doj) values('CSC',"2022-07-12");
+
+select * from student;
+
+set sql_safe_updates=0;
+
+update student set name="phanendra" where name="Phani";
+
+update student set name="manikanta" where name="mani";
+
+update student set marks=100 where marks>=90;
+
+update student set name="harikrishna",branch="CSE",marks=80 where name="hari";
+
+update student set name="sandeep krishna",branch="AIML",doj="2023-9-01",marks=90 where name="sandeep";
+
+select * from student;
+
+update student set branch="IOT" where branch is null;
+
+update student set marks=200 where marks is null;
+
+delete from student where student_id=3;
+
+delete from student where student_id>4;
+
+set autocommit=0;
+
+select * from student;
+
+delete from student;
+
+truncate table student;
+
+rollback;
+
+set autocommit=1;
+
+insert into student value(1,"siva","CSE","2023-01-02",33),
+(2,"siva","ECE","2023-12-01",40),
+(3,'phani',"AIML","2025-12-10",45);
+
+select * from student;
+
+
+
+update student set name="praveen" where student_id=2;
+
+

@@ -1,0 +1,91 @@
+extra operators :
+
+like
+as          :-- will used to change table or column_name temporarily
+between     :-- will return all value in between two range of values
+		>>>select * from table_name where column_name between start and end_range;
+union       :-- will return all values from both table but return only once which are duplicated
+		>>>select * from table1
+		   union
+		   select * from table2;
+union all   :-- will return all values from both table with duplicates
+		>>>select * from table1
+		   union all 
+		   select * from table2;
+intersect   :-- will return common values in both tables
+		>>>select * from table1
+		   intersect
+		   select * from table2;
+except      :-- will return all values from first table except common values with second table 
+		>>>select * from table1
+		   except
+		   select * from table2;
+
+======================================================================================
+use ecosystem;
+
+show tables;
+
+select * from customers;
+
+select * from customers where name like '%y_';
+
+select *,cus_id*age as totalamount from customers;
+
+select * from customers;
+
+select * from customers where age between 10 and 100;
+
+show tables;
+
+create table sales(
+id int,
+item varchar(100),
+price int
+);
+
+select * from sales;
+
+insert into sales values(1,'phone',10000),
+(2,'laptop',40000),
+(3,'speakers',8000),
+(4,'tablet',18000),
+(5,'tv',36000);
+
+select * from sales;
+
+create table sales1(
+id int,
+item varchar(100),
+price int
+);
+
+insert into sales1 values(1,'phone',10000),
+(2,'laptop',40000),
+(5,'tv',36000),
+(5,'tv',36000),
+(5,'tv',40000),
+(6,'ear buds',3000),
+(7,'watch',1500);
+
+select * from sales1;
+
+select * from sales
+union
+select * from sales1;
+
+select * from sales
+union all
+select * from sales1;
+
+select * from sales
+intersect
+select * from sales1;
+
+select * from sales
+except
+select * from sales1;
+
+select * from sales1
+except
+select * from sales;

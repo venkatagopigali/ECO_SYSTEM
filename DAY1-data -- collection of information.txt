@@ -1,0 +1,84 @@
+data :-- collection of information 
+
+database :-- will used to store the data 
+
+RDBMS   :-- relational database management system 
+	>>> data will store as table
+	>>>table is nothing but collection of row and columns i.e record and fileds
+	>>>we can access the data with SQL
+
+DBMS    :-- database management system 
+	>>>data will store as text files ex:-- json
+	>>> in the format {key:values}
+	>>>we can access the data with NoSQL/MongoDB
+
+
+SQL :-- structured query language 
+language :-- will used to communicate with others 
+query    :-- set of instructions 
+
+DDL   :-- data definition language :-- we can perform operations on database and 					table architecture 
+		>>>create,alter,rename,truncate,drop
+DML   :-- data manipulation language :-- we can perform operation on table data
+		>>>insert,update,delete
+DCL   :-- data control language :-- will used give the permissions and remove the 			permission from user
+		>>>grant,revoke
+TCL   :-- transaction control language :-- 
+	transaction :-- which will perform operation on table data i.e 		insert,update,delete
+	        >>> commit,rollback,savepoint
+DQL   :-- data query language :-- will used to display or retrieve  data
+		>>>select 
+
+
+
+DDL :-- data definition language :-- we can perform operations on database and 					table architecture 
+
+create   :-- we can used to create the database and table architecture 
+------------------------------------------------------------------------
+
+creation of database :-- 
+------------------------
+>>>create database database_name;
+
+display databases :--
+---------------------------
+>>>show databases;
+
+selecting a database :--
+---------------------------
+>>>use database_name;
+
+display the tables :--
+---------------------------
+>>>show tables;
+
+
+
+
+
+
+alter 
+rename 
+truncate 
+drop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

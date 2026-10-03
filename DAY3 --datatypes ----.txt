@@ -1,0 +1,169 @@
+datatypes :----
+-----------------------
+number 
+--------------
+int
+bigint
+float
+double
+decimal(s,p)
+
+string:
+----------------
+varchar(size)
+char(size)
+text
+
+date :-- will accepts the date type of data
+---------------------------------------------
+date      :-- will accepts the date type of data
+		"yyyy-mm-dd"
+time      :-- will accepts the time type of data
+		"HH:MM:SS"
+datetime  :-- will accepts the date and time  type of data
+		"yyyy-mm-dd HH:MM:SS"
+
+
+
+ddl ":-
+---------------------------
+create 
+alter      :-- will used to perform operation on table architecture 
+--------------------------------------------------------------
+add column :-- 
+--------------
+at last :--
+---------
+>>>alter table table_name add column column_name datatype;
+
+at middle :--
+-----------
+>>>alter table table_name add column column_name datatype after exsting_column;
+
+at first :--
+-----------------
+>>>alter table table_name add column column_name datatype first;
+
+rename column :--
+----------------------------
+>>>alter table table_name rename column old_column_name to new_column_name;
+
+drop column :--
+----------------------------
+>>>alter table table_name drop column column_name;
+
+change datatype :--
+-----------------------
+>>>alter table table_name modify column column_name new_datatype;
+
+
+rename      :-- will used to change table name 
+---------------------------------------------------------------------------
+>>>rename table old_table_name to new_table_name;
+
+truncate    :-- will remove total data from table except table  architecture
+-------------------------------------------------------------------
+>>>truncate table table_name;
+
+drop        :-- will remove both table data and table architecture
+--------------------------------------------------------------------
+>>>drop table table_name;
+
+>>>drop database database_name;
+
+
+================================================================================
+
+use ecosystem;
+
+create table employee(
+doj date,
+dot time,
+logout datetime
+);
+
+select * from employee;
+
+insert into employee values('2020-07-13','9:30:10','2025-01-01 5:30:10');
+
+select * from employee;
+
+create table employee1(
+empid int,
+emp_name varchar(50),
+email varchar(100),
+pan_num char(10),
+address text,
+login datetime,
+dob date,
+salary decimal(10,2),
+phone bigint
+);
+
+select * from employee1;
+
+select * from emp;
+
+show tables;
+
+select * from employee1;
+
+alter table employee1 add column adhar bigint;
+
+alter table employee1 add column exp int;
+
+alter table employee1 add column logout datetime after login;
+
+alter table employee1 add column designation varchar(100) after emp_name;
+
+alter table employee1 add column sno int first;
+
+alter table employee1 rename column email to linkedin;
+
+select * from employee1;
+
+alter table employee1 drop column exp;
+
+alter table employee1 rename column phone to mobile;
+
+alter table employee1 drop column adhar;
+
+desc employee1;
+
+alter table employee1 modify column emp_name text;
+
+alter table employee1 modify column pan_num varchar(100);
+
+show tables;
+
+select * from example;
+
+rename table example to new_example;
+
+select * from new_example;
+
+show tables;
+
+rename table num to numbers;
+
+select * from numbers;
+
+drop table numbers;
+
+truncate table numbers;
+
+show tables;
+
+drop database ecosystem;
+
+select * from stu1;
+
+drop table stu1;
+
+create database ecosystem;
+
+use ecosystem;
+
+show tables;
+
+

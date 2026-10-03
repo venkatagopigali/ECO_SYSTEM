@@ -1,0 +1,151 @@
+constraints :-- will check conditions before enter data into table 
+		will send the data into table after checking the condition
+
+unique         :-- will not accept the duplicates 
+		>>>will accepts the null values 
+not null       :-- will not accepts the null values
+		>>>will accepts the duplicates 
+check          :-- will send the data into column after validate the condition
+default        :-- will send a value automatically when cell is null
+auto_increment :-- will assign number to row by default 1 to n no.of rows
+
+
+>>>create table table_name(
+column_name datatype constraint
+);
+
+>>>create table table_name(
+column_name datatype check (condition)
+);
+
+>>>create table table_name(
+column_name datatype default "value"
+);
+
+>>>create table table_name(
+column_name datatype unique auto_increment
+);
+
+=================================================================================
+
+use ecosystem;
+
+show tables;
+
+select *,marks%10 from student;
+
+select * from student where marks<>40;
+
+select * from student where marks>42 or branch="CSE";
+
+select * from student where not branch="Cse";
+
+select * from student;
+
+select * from student where marks not in (33,40);
+
+select * from student;
+
+insert into student(name) values("mani");
+
+select * from student where student_id is null;
+
+select * from student where student_id is not null;
+
+create table voter(
+id int,
+name varchar(100),
+age int,
+address text
+);
+
+select * from voter;
+
+insert into voter values(1,"Phani",17,"Vizac");
+
+insert into voter(name,age,address) values("gopi",16,"Hyderabad");
+
+select * from voter;
+
+create table t1(
+id int unique,
+name varchar(100)
+);
+
+desc t1;
+
+select * from t1;
+
+insert into t1(name) values("satish");
+
+create table t2(
+id int,
+name varchar(50) not null
+);
+
+desc t2;
+
+insert into t2(id) values(1);
+
+select * from t2;
+
+create table t3(
+id int,
+name varchar(100),
+age int check (age>=18)
+);
+
+select * from t3;
+
+insert into t3 values(1,"phani",35);
+
+create table t4(
+id int,
+name varchar(100),
+graduation varchar(100) default "B.Tech"
+);
+
+desc t4;
+
+insert into t4(id,name) values(1,"raju");
+
+select * from t4;
+
+create table t5(
+id int unique auto_increment,
+name varchar(100)
+);
+
+desc t5;
+
+insert into t5(name) values("phani"),("mani"),("luffi");
+
+select * from t5;
+
+create table t6(
+name int unique auto_increment,
+branch varchar(100)
+);
+
+create table t7(
+id int unique auto_increment,
+name varchar(100)
+)auto_increment=5;
+
+insert into t7(name) values("ntr"),("allu"),("sampu"),("prabhash"),("kalyan babu"),("nani");
+
+select * from t7;
+
+create table voter_list(
+id int unique not null auto_increment,
+name varchar(100) not null,
+age int not null check (age>=18),
+email varchar(100) unique not null,
+address varchar(100) default "india"
+);
+
+desc voter_list;
+
+insert into voter_list(name,age) values("phani",54);
+
+select * from voter_list;

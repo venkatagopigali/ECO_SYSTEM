@@ -1,0 +1,105 @@
+clauses  :-- will used to extract the data from table based on condition
+
+
+dump the data:-
+----------------------------
+schema --> select database --> right click --> table_data_import_wizard --> file_path
+
+
+where     :-- will used to filter or grouping data based on condition
+		>>>select * from table_name where condition;
+order by  :-- will set the data into specific order i.e. either asc or desc
+		>>>select * from table_name order by column_name;
+		>>>select * from table_name order by column_name desc;
+
+limit     :-- will select no.of rows from table top
+		>>>select * from table_name limit no.of_records;
+distinct  :-- will return all values from column but will return only once which are duplicated
+		>>>select distinct column_name from table_name;
+group by  :-- will used to group the data without condition
+		>>>select column_name from table_name group by column_name;
+having    :-- will used to perform the condition on grouping data 
+		>>>select column_name from table_name group by column_name having condition;
+
+
+offset   :-- will skip the no.of records from top 
+	       >>>select * from table_name limit no.of_rec_selected offset no.of_rec_skip;
+
+
+=============================================================================================
+
+use ecosystem;
+
+show tables;
+
+select * from orders_2024_jan_jun;
+
+rename table orders_2024_jan_jun to items;
+
+select * from items;
+
+select * from items where paymentmethod="upi";
+
+select * from items where region="north";
+
+select * from items where region="north" and paymentmethod="upi" and category='Grocery';
+
+select * from items where region="north" or paymentmethod="upi";
+
+select * from items where quantity>=5;
+
+select * from items;
+
+select * from items order by quantity asc;
+
+select * from items order by quantity desc;
+
+select * from items order by region desc;
+
+select * from items order by region desc,quantity;
+
+create table balayya(
+sno int,
+name varchar(100)
+);
+
+insert into balayya values(1,"ashok"),
+(2,"ajith"),
+(3,"kiran"),
+(4,"varun"),
+(5,"ganesh"),
+(6,"mani");
+
+select * from balayya order by name desc;
+
+select * from items;
+
+select * from items limit 3;
+
+select * from items limit 5;
+
+select * from items limit 3 offset 5;
+
+select * from items limit 4 offset 10;
+
+select * from items;
+
+select distinct region from items;
+
+select distinct region from items;
+
+select region,sum(price) from items group by region;
+
+select * from items;
+
+select category,sum(quantity) from items group by category;
+
+select * from items;
+
+select paymentmethod,sum(totalamount) from items group by paymentmethod;
+
+select * from items;
+
+select region,sum(price) from items group by region having sum(price)>90000;
+
+select category,sum(quantity) from items group by category having sum(quantity)>350;

@@ -1,0 +1,111 @@
+subqueries :-- a query inside the another query
+		-->outer query
+		-->inner query
+
+single row    :-- will return the condition single row and single columns i.e. single cell
+			(=,>,<,>=,<=,!= or <>)
+multi row     :-- will return the condition as more then one row and single column
+			(in, not in)
+multi column  :--
+
+case1 :-- condition will return single row and more then one column 
+		(=,>,<,>=,<=,!= or <>)
+case2 :-- condition will return as more then one row and more then one column 
+		(in, not in)
+
+
+nested 
+correlated
+
+===================================================================================
+use ecosystem;
+
+CREATE TABLE Emp (
+EmpID INT PRIMARY KEY,
+Name VARCHAR(50),
+Department VARCHAR(50),
+Salary DECIMAL(10,2),
+Age INT,
+City VARCHAR(50)
+);
+
+INSERT INTO Emp (EmpID, Name, Department, Salary, Age, City) VALUES
+(1, 'Amit', 'HR', 35000, 29, 'Delhi'),
+(2, 'Sneha', 'Finance', 48000, 32, 'Mumbai'),
+(3, 'Ravi', 'IT', 55000, 28, 'Bangalore'),
+(4, 'Priya', 'Sales', 40000, 30, 'Chennai'),
+(5, 'Karan', 'Finance', 60000, 35, 'Delhi'),
+(6, 'Meena', 'HR', 30000, 26, 'Pune'),
+(7, 'Suresh', 'IT', 70000, 40, 'Hyderabad'),
+(8, 'Divya', 'Sales', 42000, 27, 'Mumbai'),
+(9, 'Vikram', 'Finance', 65000, 36, 'Bangalore'),
+(10, 'Nisha', 'IT', 72000, 31, 'Delhi'),
+(11, 'Rohit', 'HR', 31000, 25, 'Chennai'),
+(12, 'Pooja', 'Sales', 38000, 29, 'Pune'),
+(13, 'Anil', 'Finance', 58000, 34, 'Hyderabad'),
+(14, 'Neha', 'IT', 64000, 33, 'Mumbai'),
+(15, 'Rajesh', 'Sales', 45000, 37, 'Delhi'),
+(16, 'Komal', 'HR', 33000, 28, 'Bangalore'),
+(17, 'Deepak', 'Finance', 52000, 30, 'Chennai'),
+(18, 'Swati', 'IT', 76000, 38, 'Pune'),
+(19, 'Arjun', 'Sales', 47000, 29, 'Hyderabad'),
+(20, 'Lakshmi', 'Finance', 61000, 32, 'Delhi'),
+(21, 'Manoj', 'IT', 69000, 36, 'Bangalore'),
+(22, 'Sakshi', 'Sales', 39000, 26, 'Mumbai'),
+(23, 'Harish', 'HR', 29500, 24, 'Chennai'),
+(24, 'Kavita', 'Finance', 57000, 35, 'Hyderabad'),
+(25, 'Sunil', 'IT', 73000, 39, 'Delhi'),
+(26, 'Ramesh', 'Sales', 46000, 33, 'Pune'),
+(27, 'Jyoti', 'Finance', 59000, 31, 'Bangalore'),
+(28, 'Ashok', 'IT', 71000, 34, 'Mumbai'),
+(29, 'Tanvi', 'Sales', 41000, 27, 'Delhi'),
+(30, 'Gaurav', 'HR', 34000, 29, 'Hyderabad');
+
+
+select * from emp;
+
+select * from emp where age>35;
+
+select * from emp where department='hr';
+
+select * from emp where age>
+(select age from emp where name='karan');
+
+select * from emp where department=
+(select department from emp where name='amit');
+
+select * from emp;
+
+select * from emp where city in
+(select city from emp where name='meena');
+
+select * from emp;
+
+select * from emp where salary not in
+(select salary from emp where empid=7);
+
+select * from emp;
+
+select * from emp where department in
+(select department from emp where empid=3 or empid=5);
+
+select * from emp;
+
+select name,city from emp where city not in
+(select distinct city from emp where age=29);
+
+select * from emp;
+
+select * from emp where salary>
+(select salary from emp where age=29);
+
+select * from emp;
+
+select * from emp where (city,department) =
+(select city,department from emp where empid=9);
+
+select * from emp;
+
+select * from emp where (city,department) not in
+(select city,department from emp where empid in (8,9));
+

@@ -1,0 +1,138 @@
+joins :--
+
+inner join
+left join
+right join
+outer join  :-- will return all values from both tables 
+		>>>left join + union + right join
+>>>select * from table1 left join table2 on table1.column_name=table2.column_name
+union
+select * from table1 right join table2 on table1.column_name=table2.column_name;
+
+cross join  :-- will assign each and every row in the first table with each and every in 			second table  i.e. Cartesian product
+		>>>select * from table1 cross join table2;
+
+
+self join    :--   used to mainly perform on single table   
+
+with condition :-- by default return inner join
+>>>select * from table1 join table2 on table1.col=table2.col;
+
+without condition :-- by default return cross join
+>>>select * from table1 join table2;
+
+natural join    :-- by default inner join
+		>>>will remove duplicate columns automatically
+
+>>>select * from table1 natural join table2;
+
+
+extra operators :-- will used to perform operation between two operands 
+==================================================================================
+like         :-- will return the result based on pattern string
+		>>>select * from table_name where column_name like 'pattern_string';
+		wild card functions :--
+		-----------------------------------
+		% :-- will read zero or more characters at time 
+		_ :-- will read only one character
+as 
+between
+union
+union all
+intersect
+except
+
+================================================================================
+
+use ecosystem;
+
+select * from customers;
+
+select * from insurence;
+
+insert into insurence values(4,'icici','bike insurence');
+
+select * from customers left join insurence on customers.cus_id=insurence.cus_id 
+union all 
+select * from customers right join insurence on customers.cus_id=insurence.cus_id;
+
+select * from customers;
+
+select * from insurence;
+
+select * from customers cross join insurence;
+
+select * from customers join insurence on customers.cus_id=insurence.cus_id;
+
+select * from customers join insurence;
+
+select * from customers;
+
+select * from customers as e join customers;
+
+select * from customers as e join customers on e.cus_id=customers.cus_id;
+
+select customers.*,insurence.insurence_name,insurence.policy_type from customers inner join insurence on customers.cus_id=insurence.cus_id;
+
+select * from customers natural join insurence;
+
+select  * from customers;
+
+select * from insurence;
+
+create table ins(
+cus_id int,
+name varchar(100),
+mail varchar(100)
+);
+
+select * from ins;
+
+insert into ins values(1,'hari','hari@gmail.com'),
+(3,'raju','raju@gmail.com');
+
+select * from ins;
+
+select * from customers inner join insurence on customers.cus_id=insurence.cus_id inner join ins on ins.cus_id=customers.cus_id;
+
+select * from customers inner join insurence on customers.cus_id=insurence.cus_id left join ins on ins.cus_id=insurence.cus_id;
+
+select * from customers;
+
+insert into customers values(6,'tarun',22,'Student'),
+(7,'ramya',21,'student'),
+(8,'lakshmi',45,'Deen');
+
+select * from customers;
+
+select * from customers where name like 'k%';
+
+select * from customers where name like 'k____';
+
+select * from customers where name like '_a%';
+
+select * from customers where name like '_a___';
+
+select * from customers;
+
+select * from customers where name like '%a';
+
+select * from customers where name like 'm%' or name like 'k%';
+
+-- start with vowels (a,e,i,o,u)
+-- end with vowels 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
