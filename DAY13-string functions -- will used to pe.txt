@@ -1,0 +1,62 @@
+string functions :-- will used to perform operation on any kind of data i.e. string ,number ,date 
+
+concat('str1','str2')           :-- will used to combine the two or more values            
+upper('str')                    :-- will convert the small case letters to uppercase letters
+lower('str')                    :-- will convert the uppercase letters to lowercase letters 
+length('str')                   :-- will return no.of characters in a string 
+replace('str','old','new')      :-- will used to replace the old text with new text
+left('str',no.of_chars)         :-- will split the string from left side by defaultly
+right('str',no.of_chars)        :-- will split the string from right side by defaultly
+substr('str',start,no.of_chars) :-- will used to split the string
+reverse('str')                  :-- will used to reverse the string
+trim('str')                     :-- will remove start and end spaces from string    
+substring_index()               :-- will used to remove the string by using delimiter
+
+==========================================================================================
+
+use ecosystem;
+
+select * from emp;
+
+select * from emp as e where salary>
+(select avg(salary) from emp where department=e.department);
+
+select * from emp where city in
+(select city from emp group by city,department having count(*)>=1);
+
+select city from emp group by city having count(*)=
+(select distinct count(*) from emp group by city order by count(*) desc limit 1 offset 1);
+
+select * from emp where city in
+(select city from emp group by city having count(*)>
+(select count(*) from emp where city in
+(select city from emp where name='priya')));
+
+
+select concat('eco','@','system',12,34);
+
+select upper('GouThami');
+
+select lower("NiKHitha");
+
+select length('45678 mounika');
+
+
+select replace('mani','a','@');
+
+select replace('MANI','a','@');
+
+select ascii('A');
+
+select left('divya',10);
+
+select right('divya',3);
+
+select substr('divya',2,2);
+
+select reverse('raju');
+
+select trim('              ramesh           ');
+
+select substring_index('i,am,vijay,kumar',',',1);
+
