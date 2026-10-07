@@ -1,0 +1,93 @@
+DATE FUNCTIONS :-- will used to perform operation on date type of data
+
+now()                        :-- will return present date and time  
+current_date() or curdate()  :-- will return present date
+current_time() or curtime()  :-- will return present time
+date_add('date',interval count day/month/year) :--
+		>>>will used to add no.of days or months or year to date
+date_sub('date',interval count day/month/year) :--
+		>>>will used to subtract no.of days or months or years
+datediff('end_date','start_date')  :--
+		>>>will used to return the no.of days in between two dates
+extract(year/month/day/hour/minute/second from 'date') :
+		>>>will extract year or month or day or minutes or hours or seconds from date
+day()          :-- will extract day from date
+month()        :-- will extract month from date
+year()         :-- will extract year from date
+hour()         :-- will extract hour from date
+minute()       :-- will extract minute from date
+second()       :-- will extract second from date
+dayname()      :-- will return name of the day
+monthname()    :-- will return name of the month
+
+====================================================================================
+use ecosystem;
+
+select now();
+
+select current_date();
+
+select curdate();
+
+select current_time();
+
+select curtime();
+
+-- '2023-09-07'
+
+select date_add('2023-09-07',interval 10 year);
+
+select date_add(curdate(),interval 5 year);
+
+-- '2023-09-07'
+
+select date_sub('2023-09-07',interval 5 year);
+
+select date_sub(curdate(),interval 5 year);
+
+select datediff('2026-10-07','2026-10-05');
+
+select datediff(curdate(),'2002-06-09');
+
+select now();
+
+select extract(second from now());
+
+select extract(year from now())-extract(year from '2002-06-09');
+
+select day(now());
+
+select month(now());
+
+select year(now());
+
+select hour(now()),minute(now()),second(now());
+
+select year(now())-year('2002-06-09');
+
+select dayname('2002-09-06');
+
+select monthname('2002-09-06');
+
+
+task 
+--------------------------------------------------
+-- sunday sales
+-- first sales high or last six months sales high
+-- last six month sales
+-- q1,q2,q3,q4 -- high sales in which quater 
+-- what are sales in weekdays and weekends
+
+
+select sqrt(100);
+
+select power(5,2);
+
+select round(3.4,0);
+
+select floor(3.9);
+
+select ceil(3.1);
+
+-- sum(),min(),max(),avg(),count()
+

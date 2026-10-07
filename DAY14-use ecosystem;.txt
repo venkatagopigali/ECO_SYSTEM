@@ -1,0 +1,63 @@
+use ecosystem;
+
+show tables;
+
+select * from customers;
+
+select *,concat(name,age,'@gmail.com') from customers;
+
+select * from customers;
+
+alter table customers add column email varchar(100);
+
+select * from customers;
+
+set sql_safe_updates=0;
+
+update customers set email=concat(name,age,'@gmail.com');
+
+select *,upper(name) from customers;
+
+update customers set name=upper(name);
+
+select * from customers;
+
+select *,length(name) from customers;
+-- i --> !
+
+select *,replace(name,'i','!') from customers;
+
+update customers set name=replace(name,'i','!');
+
+select *,lower(name) from customers;
+
+update customers set name=lower(name);
+
+select * from customers;
+
+select *,reverse(name) from customers;
+
+select * from customers;
+
+select *,concat(upper(left(name,1)),lower(substr(name,2))) from customers;
+
+update customers set name=concat(upper(left(name,1)),lower(substr(name,2)));
+desc customers;
+
+insert into customers(cus_id,name)  values(9,'madam'),
+(10,'sir'),
+(11,'malayalam');
+
+select * from customers;
+
+select * from customers where name in
+(select reverse(name) from customers);
+
+select * from customers where name=reverse(name);
+
+select *,trim(name),trim(email) new_email from customers;
+
+select * from customers;
+
+select *,reverse(substr(reverse(substring_index(email,'@',1)),3)) from customers;
+
