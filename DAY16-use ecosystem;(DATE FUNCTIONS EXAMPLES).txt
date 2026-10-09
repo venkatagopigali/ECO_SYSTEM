@@ -1,0 +1,51 @@
+use ecosystem;
+
+show tables;
+
+select * from sales;
+
+select *,date_format(str_to_date(orderdate,'%m/%d/%Y'),'%Y-%m-%d') from sales;
+
+set sql_safe_updates=0;
+
+update sales set orderdate=date_format(str_to_date(orderdate,'%m/%d/%Y'),'%Y-%m-%d');
+
+select * from sales;
+
+desc sales;
+
+alter table sales modify column orderdate date;
+
+select * from sales;
+
+select sum(sales) from sales where year(orderdate)=2026;
+
+select sum(sales) from sales where year(orderdate)=2026 and month(orderdate)=1;
+
+select sum(sales) from sales where year(orderdate)=2026 and dayname(orderdate)='friday';
+
+select curdate();
+
+select date_sub(curdate(),interval 6 month);
+
+select sum(sales) from sales where orderdate>=date_sub(curdate(),interval 6 month) and orderdate<=curdate();
+
+select year(orderdate),max(sales),sum(sales) from sales group by year(orderdate);
+
+select year(orderdate),sum(sales) from sales where month(orderdate)=1 group by year(orderdate);
+
+select * from sales;
+
+select sum(sales) from sales where year(orderdate)=2024 and month(orderdate) in (4,5,6);
+
+select * from sales;
+
+with vijay as(
+select *,(case
+when month(orderdate)>=1 and month(orderdate)<=3 then 'q1'
+when month(orderdate)>=4 and month(orderdate)<=6 then 'q2'
+when month(orderdate)>=7 and month(orderdate)<=9 then 'q3'
+when month(orderdate)>=10 and month(orderdate)<=12 then 'q4'
+end) as quater from sales
+)
+select quater,sum(sales) from vijay where year(orderdate)=2024 group by quater;
