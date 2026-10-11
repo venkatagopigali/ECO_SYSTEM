@@ -1,0 +1,140 @@
+window functions :-- will used to perform any kind of data
+
+row_number()     :-- will assign a number to row from 1 to n no.of rows
+		>>>select *,row_number() over() from table_name;
+rank()           :-- will skip sequence of rank when duplicates are occurred
+		>>>select *,rank() over(ordered columns) from table_name;
+dense_rank()     :-- will not skip the sequence of rank including duplicates are occurred
+		>>>select *,dense_rank() over(ordered column) from table_name;
+lead()           :-- will used to move the entire to upwards
+		>>>select *,lead(column_name,no.of_pos) over() from table_name;
+lag()            :-- will used to move the entire column to downward
+		>>>select *,lag(column_name,no.of_pos) over() from table_name;
+ntile()          :-- will used to make the no.of groups in a table
+		>>>select ,ntile(no.of_groups) over() from table_name;
+
+
+partition by :-- will separate same type of values 
+
+
+case statement :-- will used to return the result based on condition 
+
+case
+when condition1 then result1
+when condition2 then result2
+when condition3 then result3
+else result
+end
+
+
+CTE :-- common table expression :-- will used to perform operation on temperorly stored column
+
+with cte_name as(
+-- command
+)
+select * from cte_name;
+
+
+
+===============================================================================
+
+use ecosystem;
+
+create table stu_id(
+id int primary key auto_increment,
+name varchar(100)
+);
+
+select * from stu_id;
+
+insert into stu_id(name) values('divya'),('gayathri'),('vijay'),('sneha');
+
+select * from stu_id;
+
+delete from stu_id where id in (8,3,4);
+
+create table class(
+name varchar(100),
+section varchar(10),
+branch varchar(20),
+marks int
+);
+
+insert into class values('vijay','C','AIML',80),
+('Mani','C','AIML',70),
+('Divya','C','AIML',99),
+('Gouthami','C','AIML',95),
+('Ravi','C',"AIML",95),
+('Navya','A','AIML',99),
+('Kiran','A','AIML',85),
+('Mounika','A','AIML',95),
+('varun','B',"AIML",85);
+
+select * from class;
+
+set sql_safe_updates=0;
+
+delete from class where name='divya';
+
+select *,row_number() over() as id from class;
+
+insert into class values('Divya','C','AIML',99);
+
+with class as(
+select *,row_number() over() as id from class
+)
+select id,name,section,branch,marks from class;
+
+select * from class;
+
+select *,rank() over(order by marks desc) from class;
+
+select *,dense_rank() over(order by marks desc) from class;
+
+select *,dense_rank() over(partition by section order by marks desc) from class;
+
+select *,rank() over(partition by section order by marks desc) from class;
+
+select * from book1;
+
+select *,lead(name,2) over() as name from book1;
+
+select *,lag(marks,2) over() as marks from book1;
+
+select * from class;
+
+select *,ntile(5) over() from class;
+
+-- num pos,neg,zero
+
+set @num=-1;
+
+select 
+case
+when @num>0 then 'positive'
+when @num<0 then 'negative'
+else 'Zero'
+end as num;
+
+
+-- num --> even,odd
+
+set @value1=50;
+
+select 
+case
+when @value1%2=0 then 'even'
+else 'odd'
+end as num;
+
+select * from class;
+
+with cte as(
+select *,
+case
+when marks>=90 then 'High'
+when marks>=80 and marks<90 then 'Medium'
+else 'low'
+end as grade from class
+)
+select * from cte where grade='medium';
