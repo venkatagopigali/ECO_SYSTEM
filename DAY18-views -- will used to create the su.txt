@@ -1,0 +1,107 @@
+views :-- will used to create the subtables i.e. virtual tables
+
+>>>to reduce time complexity 
+>>>will provide the security to data  
+
+creation of views :-- 
+----------------------
+>>>create view view_name as 
+-- command
+
+display the view:
+-----------------------
+>>>select * from view_name;
+
+complex view :-- will used to create view for joins 
+
+remove the view :--
+-------------------------------
+>>>drop view view_name;
+
+select `ecosystem`.`emp`.`EmpID` AS `EmpID`,`ecosystem`.`emp`.`Name` AS `Name`,`ecosystem`.`emp`.`Department` AS `Department`,`ecosystem`.`emp`.`Salary` AS `Salary`,`ecosystem`.`emp`.`Age` AS `Age`,`ecosystem`.`emp`.`City` AS `City` from `ecosystem`.`emp` where (`ecosystem`.`emp`.`Department` = 'Hr')
+
+
+============================================================================
+use ecosystem;
+
+select * from emp;
+
+select * from emp where department='hr';
+
+select * from emp where department='IT';
+
+select distinct salary from emp order by salary desc limit 5;
+
+create view it_dept as
+select * from emp where department='it';
+
+select * from it_dept;
+
+create view hr_dept as 
+select * from emp where department='Hr';
+
+select * from hr_dept;
+
+create view top5_salary as
+with cte as(
+select *,dense_rank() over(order by salary desc) as r from emp
+)
+select * from cte where r<=5;
+
+select * from it_dept;
+
+select * from hr_dept;
+
+select * from top5_salary;
+
+select * from emp;
+
+insert into emp values(32,'suresh','HR',20000,30,'Kerala');
+
+select * from top5_salary;
+
+select * from emp;
+
+set sql_safe_updates=0;
+
+update emp set salary=90000 where name='priya';
+
+update hr_dept set salary=20000 where name='priya';
+
+insert into hr_dept values(33,'Priya','IT',10000,29,'Hyd');
+
+select * from emp;
+
+show tables;
+
+select * from customers;
+
+select * from insurence;
+
+insert into insurence values(5,'HDFC','life insurence');
+
+create view c_i_inner as
+select customers.*,insurence.insurence_name,insurence.policy_type from customers inner join insurence on customers.cus_id=insurence.cus_id;
+
+select * from c_i_inner;
+
+drop view top5_salary;
+
+select * from hr_dept;
+
+show databases;
+
+use information_schema;
+
+show tables;
+
+select * from CHECK_CONSTRAINTS where constraint_schema='ecosystem';
+
+show tables;
+
+select * from views where table_schema='ecosystem';
+
+select empid,name,department,salary,age,city from emp;
+
+
+select `ecosystem`.`emp`.`EmpID` AS `EmpID`,`ecosystem`.`emp`.`Name` AS `Name`,`ecosystem`.`emp`.`Department` AS `Department`,`ecosystem`.`emp`.`Salary` AS `Salary`,`ecosystem`.`emp`.`Age` AS `Age`,`ecosystem`.`emp`.`City` AS `City` from `ecosystem`.`emp` where (`ecosystem`.`emp`.`Department` = 'Hr')
