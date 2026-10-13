@@ -1,0 +1,180 @@
+stored procedure :-- here we reuse the block of commands
+
+-- will reduce time complexity
+-- will reduce space complexity
+
+
+creating a procedure :
+----------------------------------
+delimiter $$
+create procedure procedure_name()
+begin
+-- commands
+end$$
+delimiter ;
+
+calling procedure :
+------------------------------
+>>>call procedure_name();
+
+without parameters :-- there will no parameters inside procedure
+
+creating a procedure :
+----------------------------------
+delimiter $$
+create procedure procedure_name()
+begin
+-- commands
+end$$
+delimiter ;
+
+calling procedure :
+------------------------------
+>>>call procedure_name();
+
+
+with parameters :-- we can pass some parameters inside the procedure 
+-----------------------------------------------------------------------
+creating a procedure :
+----------------------------------
+delimiter $$
+create procedure procedure_name(var1 datatype,------)
+begin
+-- commands
+end$$
+delimiter ;
+
+calling procedure :
+------------------------------
+>>>call procedure_name(val1,----------);
+
+types of with parameters :
+-------------------------------
+in 
+out
+inout
+
+
+remove the procedure :
+-----------------------------------
+>>>drop procedure procedure_name;
+
+===========================================================================
+
+use ecosystem;
+
+select * from emp;
+
+delimiter $$
+create procedure emp_table()
+begin
+select * from emp;
+end$$
+delimiter ;
+
+call emp_table();
+
+delimiter $$
+create procedure emp_dept()
+begin
+select * from emp where department='Hr';
+select * from emp where salary>50000;
+select * from emp where department='Hr' and salary>50000;
+end$$
+delimiter ;
+
+call emp_dept();
+
+delimiter $$
+create procedure emp_it()
+begin
+select * from emp where department='it';
+end$$
+delimiter ;
+
+call emp_it();
+
+call emp_table();
+
+insert into emp values(34,'Vijay','IT',90000,21,'Calofornia');
+
+call emp_table();
+
+delimiter $$
+create procedure dept()
+begin
+select * from emp where department='Hr';
+end$$
+delimiter ;
+
+call dept();
+
+delimiter $$
+create procedure dept1(d varchar(100))
+begin
+select * from emp where department=d;
+end$$
+delimiter ;
+
+call dept1('sales');
+
+select * from emp;
+
+delimiter $$
+create procedure i_v(e int,n varchar(100),d varchar(30),s float,a int,c varchar(100))
+begin
+insert into emp values(e,n,d,s,a,c);
+select * from emp;
+end$$
+delimiter ;
+
+call i_v(35,'ravi','Hr',2500000,55,'Chennai');
+
+call i_v(36,'devi','Sales',55000,28,'vijayawada');
+
+set sql_safe_updates=0;
+
+delimiter $$
+create procedure new_name(id int,n varchar(100))
+begin
+update emp set name=n where empid=id;
+select * from emp;
+end$$
+delimiter ;
+
+call new_name(5,'amreen');
+
+call new_name(35,'virat');
+
+call emp_table();
+
+delimiter $$
+create procedure del(i int)
+begin
+delete from emp where empid=i;
+end$$
+delimiter ;
+
+call del(10);
+
+drop procedure more_salary;
+
+delimiter $$
+create procedure more_salary(s float)
+begin
+select * from emp where salary>s;
+end$$
+delimiter ;
+
+call more_salary(80000);
+
+call emp_table();
+
+
+
+
+
+
+
+
+
