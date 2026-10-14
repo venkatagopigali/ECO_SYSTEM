@@ -1,0 +1,178 @@
+procedures :
+
+with parameters :
+
+in       :-- 
+out
+inout 
+
+remove the procedure :--
+----------------------------
+>>>drop procedure procedure_name;
+
+==================================================================
+use ecosystem;
+
+call dept1('Sales');
+
+call dept();
+
+call more_salary(80000);
+
+call emp_table();
+
+show databases;
+
+use information_schema;
+
+show tables;
+
+select ROUTINE_NAME,ROUTINE_DEFINITION from ROUTINES where ROUTINE_SCHEMA='ecosystem';
+
+select * from emp;
+
+delimiter $$
+create procedure age(in a int)
+begin
+select * from emp where age>a;
+end$$
+delimiter ;
+
+call age(30);
+
+delimiter $$
+create procedure dept2(in d varchar(100))
+begin
+select * from emp where department=d;
+end$$
+delimiter ;
+
+call dept2('Hr');
+
+delimiter $$
+create procedure t1()
+begin
+select * from emp;
+end$$
+delimiter ;
+
+call t1();
+
+delimiter $$
+create procedure t2(out a int)
+begin
+select * from emp;
+end$$
+delimiter ;
+
+
+call t1();
+call t2(@2);
+
+call t1();
+
+call t2(@a);
+
+call age(30);
+
+delimiter $$
+create procedure age1(a int,out b int)
+begin
+select * from emp where age>a;
+end$$
+delimiter ;
+
+call age(30);
+
+call age1(30,@a);
+
+select * from emp;
+
+delimiter $$
+create procedure age2(inout a int)
+begin
+select * from emp where age>a;
+end$$
+delimiter ;
+
+set @a=40;
+
+call age2(@a);
+
+drop procedure age2;
+
+delimiter $$
+create procedure t(a varchar(100))
+begin
+select * from a;
+end$$
+delimiter ;
+
+call t('emp');
+
+==========================================================================================
+
+index :-- will used to retrieve the data fastly
+================================================
+
+index             :--will used to retrieve the data fastly , will accepts the duplicates and null values 
+
+>>>create index index_name on table_name(column_name);
+
+unique index      :--will used to retrieve the data fastly , will not accepts duplicates and allow null values
+
+>>>create unique index index_name on table_name(column_name);
+ 
+primary index     :--will used to retrieve the data fastly , will not accepts duplicates and null values
+
+>>>create table table_name(
+column_name datatype primary key
+
+);
+
+
+select * from emp where empid=3;
+
+select * from emp;
+
+drop table e1;
+
+create table e1(
+sno int,
+name varchar(100)
+);
+
+select * from e1;
+
+select * from e1 where sno=1;
+
+create index s1 on e1(sno);
+
+create unique index s1 on e1(sno);
+
+insert into e1 values(2,'mani');
+
+drop table e3;
+create table e3(
+sno int,
+name varchar(100)
+);
+
+select * from e3;
+
+insert into e3 values(1,'vijay'),
+(2,'mani');
+
+insert into e3 values(4,'gouthami'),
+(3,'divya');
+
+select * from e2;
+
+delete from e2 where sno=2;
+
+insert into e2 values(2,'mohan');
+
+drop index s1 on e1;
+
+
+
