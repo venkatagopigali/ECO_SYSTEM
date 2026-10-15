@@ -1,0 +1,206 @@
+triggers :-- if we are perform an operation in table then it will effect in another table
+		>>>automatically executed block of command
+
+delimiter $$
+create trigger trigger_name
+{before|after} {insert|update|delete} on table_name
+for each row
+begin
+-- commands;
+end$$
+delimiter ;
+
+
+new   :-- will enter new data into table 
+old   :-- will used access the existing data in table 
+ 
+
+remove the trigger:
+---------------------------
+>>drop trigger trigger_name;
+
+===========================================================================
+
+use ecosystem;
+
+create table bank(
+acc bigint,
+name varchar(100),
+balence int
+);
+
+select * from bank;
+
+create table report(
+dot datetime default now(),
+result varchar(100)
+);
+
+select * from bank;
+
+insert into bank values(1,'vijay',100000);
+
+select * from report;
+
+delimiter $$
+create trigger t1
+after insert on bank
+for each row
+begin
+insert into report(result) values('new account created ...');
+end$$
+delimiter ;
+
+select * from bank;
+
+set sql_safe_updates=0;
+
+update bank set balence=2000000 where acc=2;
+
+insert into bank values(2,'divya',200);
+
+insert into bank values(3,'satish',100000),
+(4,'gopi',-200);
+
+select * from report;
+
+delimiter $$
+create trigger t2
+after update on bank
+for each row
+begin
+insert into report(result) values('balence updated');
+end$$
+delimiter ;
+
+select * from bank;
+
+update bank set balence=200000 where acc=1;
+
+select * from report;
+
+delete from bank where acc=4;
+
+delimiter $$
+create trigger t3
+after delete on bank
+for each row 
+begin
+insert into report(result) values('deleted the account');
+end$$
+delimiter ;
+
+select * from bank;
+
+delete from bank where acc=1;
+
+select * from report;
+
+select * from bank;
+
+insert into bank values(1,'divya',5000),
+(2,'gouthami',20000);
+
+update bank set balence=1000 where acc=2;
+
+delete from bank where acc=2;
+
+select * from report;
+
+insert into bank values(2,'Triveni',100);
+
+select * from bank;
+
+select * from report;
+
+delimiter $$
+create trigger t4
+before insert on bank
+for each row
+begin
+if new.balence<1000 then 
+signal sqlstate '45000' set message_text='minimum balence required 1000';
+end if;
+end$$
+delimiter ;
+
+select * from bank;
+
+insert into bank values(3,'satish',1000);
+
+update bank set balence=-10 where acc=3;
+
+select * from report;
+
+delimiter $$
+create trigger t5
+before update on bank
+for each row
+begin
+if new.balence<0 then
+signal sqlstate '45000' set message_text='not possible ..';
+end if;
+end$$
+delimiter ;
+
+select * from bank;
+
+update bank set balence=0 where acc=2;
+
+select * from report;
+
+delete from bank where acc=2;
+
+delimiter $$
+create trigger t6 
+before delete on bank
+for each row
+begin
+if old.balence>0 or old.balence<0 then
+signal sqlstate '45000' set message_text='accout cannot deleted balence should be 0';
+end if;
+end$$
+delimiter ;
+
+select * from bank;
+
+insert into bank values(1,'Radhika',1000);
+
+update bank set balence=0 where acc=1;
+
+delete from bank where acc=1;
+
+select * from report;
+
+use information_schema;
+
+show tables;
+
+select TRIGGER_NAME,EVENT_MANIPULATION,ACTION_TIMING,ACTION_STATEMENT from TRIGGERS where TRIGGER_SCHEMA='ecosystem';
+
+drop trigger t6;
+
+drop trigger t5;
+
+delimiter $$
+create trigger t6 
+before delete on bank
+for each row
+begin
+if old.balence>0 or old.balence<0 then
+signal sqlstate '45000' set message_text='accout cannot deleted balence should be 0';
+end if;
+end$$
+
+create trigger t5
+before update on bank
+for each row
+begin
+if new.balence<0 then
+signal sqlstate '45000' set message_text='not possible ..';
+end if;
+end$$
+
+delimiter ;
+
+
