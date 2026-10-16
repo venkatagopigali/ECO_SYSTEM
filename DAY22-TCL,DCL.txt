@@ -1,0 +1,115 @@
+tcl :-- transaction control language 
+
+>>>transaction :-- will used to perform operations on table data i.e insert,update,delete
+
+
+commit     :-- will used to store data permanently 
+		>>>commit;
+rollback   :-- will used to get back or undo the data which stored as temperorily
+		>>>rollback;
+savepoint  :-- will used to store data temporarily
+		>>>savepoint reference_name;
+
+autocommit :-- 
+
+disable the commit options :
+-----------------------------
+>>>set autocommit=0;
+
+
+start the transaction :-- 
+---------------------------------
+>>>begin;
+
+------------------------------------------------------------------------------------
+use ecosystem;
+
+show tables;
+
+select * from emp;
+
+insert into emp values(37,'shreyas','Sales',300000,35,'Mumbai');
+
+rollback;
+
+set autocommit=0;
+
+set sql_safe_updates=0;
+
+update emp set city='Bangalore' where empid=35;
+
+commit;
+
+rollback;
+
+delete from emp where department='it';
+
+rollback;
+
+select * from emp;
+
+commit;
+
+insert into emp values(37,'surya','IT',200000,34,'Delhi');
+savepoint a;
+update emp set salary=80000 where empid=1;
+savepoint b;
+delete from emp where department='finance';
+
+rollback;
+
+set autocommit=1;
+
+select * from emp;
+
+insert into emp values(37,'surya','IT',200000,34,'Delhi');
+
+rollback;
+
+select * from emp;
+
+begin;
+insert into emp values(38,'dhoni','IT',200000,34,'Delhi');
+commit;
+rollback;
+
+
+select * from emp;
+
+begin;
+insert into emp values(39,'tilak','IT',200000,34,'Delhi');
+savepoint a;
+update emp set salary=80000 where empid=1;
+savepoint b;
+delete from emp where department='finance';
+rollback to a;
+
+=========================================================================================
+
+DCL    :-- data control language :-- will used to give or remove the permission for user
+
+
+user creation :--
+---------------------------
+>>>create user username@localhost identified by 'password';
+
+
+grant    :-- will used to give the permissions 
+
+>>>grant [permission_list] on database_name.table_name to username@localhost;
+
+
+revoke   :-- will used to remove the permission
+
+>>>revoke [perrmission_list] on database_name.table_name from username@localhost;
+
+
+1234
+
+>>>remove the user :--
+-------------------------------
+>>>drop user username@localhost;
+
+
+
+
