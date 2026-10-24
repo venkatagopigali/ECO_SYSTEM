@@ -1,0 +1,98 @@
+create database Amazon;
+
+show databases;
+
+use Amazon;
+
+-- emp schema
+
+create table admin(
+admin_id int primary key,
+admin_name varchar(100) not null,
+department varchar(100) unique not null,
+email varchar(100) unique not null,
+password varchar(100) not null,
+review varchar(100)
+);
+
+create table emp(
+empid int primary key,
+empname varchar(100) not null,
+department varchar(100) not null,
+email varchar(100) unique not null,
+password varchar(100) not null,
+admin_id int not null,
+foreign key (admin_id) references admin(admin_id)
+);
+
+create table projects(
+empid int not null,
+project_id int primary key,
+project_name varchar(100) not null,
+description text not null,
+al_date date,
+deadline date,
+foreign key (empid) references emp(empid)
+);
+
+create table project_status(
+project_id int primary key,
+status varchar(100) not null,
+budget bigint not null,
+foreign key (project_id) references projects(project_id)
+);
+
+
+-- product schema
+
+create table product(
+product_id int primary key,
+name varchar(100) not null,
+price int not null,
+description text not null,
+category varchar(100) not null,
+m_date date,
+e_date date,
+stock enum('out of stock','stock')
+);
+
+-- customer table 
+
+create table customer(
+cus_id int primary key,
+customername varchar(100) not null,
+email varchar(100) not null unique,
+password varchar(100) not null,
+username varchar(100) not null unique,
+address text not null,
+phone bigint,
+dob date
+);
+
+-- orders schema
+
+create table orders(
+order_id int primary key,
+cus_id int,
+product_id  int,
+quantity int not null,
+ordered_date datetime default now(),
+address text not null,
+payment_method varchar(100) not null,
+order_status enum('delivered','cancelled','shipping','retunrned'),
+foreign key (cus_id) references customer(cus_id),
+foreign key (product_id) references product(product_id)
+);
+
+create table status(
+orders_status varchar(100)
+);
+
+delimiter $$
+create trigger t1
+after insert on orders 
+for each row
+begin
+insert into status values('new orders placed');
+end$$
+delimiter ;
