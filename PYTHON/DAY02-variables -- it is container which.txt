@@ -1,0 +1,11 @@
+variables :-- it is container which will used to store memory location data
+
+
+>>>we can start with alphabets (a-z,A-Z)
+>>>we can start with under score(_)
+>>>cannot start with number (0,9)
+>>>cannot contain any special characters (!@#$%^&*?/\|,. ) except underscore 
+>>>we can not used reserved words as variable names
+
+
+ 

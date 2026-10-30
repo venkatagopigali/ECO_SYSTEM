@@ -1,0 +1,36 @@
+datatype :-- will identify which type of data to be stored variable 
+
+type() :-- will return data type
+
+dynamically type language :-- there is no need to mention the data type
+
+types of datatypes :-- 
+-------------------------------------
+primitive datatype     :-- will used to store single values at a time
+
+int        :-- will used to store the numbers without decimal values
+float      :-- will used to store the numbers with decimal values 
+string     :-- group of characters or collection of character which is mention in quotes
+		>>>character :-- a single letter it could be anything
+				(alphabets,numbers(0-9),special symbol)
+Boolean    :-- we have two values 
+		>>>True,False 
+complex    :-- we have two parts i.e. real part and imaginary part
+		>>>a+bj
+		>>>a --> real part
+		>>>b --> imaginary part
+
+None       :-- will used to represent null values 
+
+
+
+non primitive datatype :-- will used to store the more then one values at a time 
+
+list
+tuple
+set 
+dictionary
+
+
+
+

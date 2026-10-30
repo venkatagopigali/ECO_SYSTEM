@@ -1,0 +1,16 @@
+python :-- it is programing language
+>>> language :--- it is mediator to communicate with others
+>>>programing :-- set of instructions 
+>>> it is both interpreted and compiler language
+	>>>interpreted :-- here we can line by line execution, 
+	>>>compiler    :-- here we can execute entire code at file at a time
+>>> it is dynamically typed language :-- there is no need to declare the datatype 
+>>>is high level programing language
+	>>>high     :-- which is understand by human
+	>>>low      :-- which is understand by system i.e. computer 
+        >>>medium   :-- here human some what can under stand and some what cannot understand
+
+>>>pvm :-- python virtual machine :-- 
+	>>>will convert the low level to high level or high level to level
+
+>>>it is both object oriented and procedure oriented 
