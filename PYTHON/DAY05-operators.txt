@@ -1,0 +1,26 @@
+operators :
+
+airthemetic
+assignment    :-- will used to assign the values into variable
+                  (=,+=,-=,*=,/=,%=,//=,**=)
+relational    :-- will used to compare the values
+
+==     :-- will used to compare the two values are same or not 
+>=     :-- will check the first values is higher or equal then compare to second values 
+<=     :-- will check the first values is lower or equal then compare to second values
+>      :-- will check the first values is higher or not then compare to second values 
+<      :-- will check the first values is lower or not then compare to second values
+!=     :-- will return true when values are not same
+
+
+logical      :-- will identify the condition is true or false
+
+and     :-- here must be true all conditions 
+or      :-- here at least one condition must be true
+not     :-- true --> false , false --> true
+
+
+membership
+identify
+bitwise 
+ternary

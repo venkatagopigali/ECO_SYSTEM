@@ -1,0 +1,11 @@
+operator:-- will used to perform an operation between operand or values or operand to values 
+
+arithmetic    :-- will used to perform mathematical operations
+		(+,-,*,/,%,//,**)
+assignment 
+relational 
+logical 
+membership
+identify 
+bitwise
+ternary 

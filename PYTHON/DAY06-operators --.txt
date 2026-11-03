@@ -1,0 +1,37 @@
+operators :-- 
+
+airthemetic
+assignment 
+relational
+logical 
+membership    :-- will used to check the value is present or not in a group of values
+
+in         :-- will return true when data exist in group of values
+not in     :-- will return true when data is not exists in group of values
+
+
+identify      :-- will used to compare the memory location of data 
+
+id() :-- will used to display memory location of data
+
+is       :-- will return true when the both memory location are same
+is not   :-- will return true when the both memory locations are not same 
+
+
+bitwise     :-- will used to perform computer calculation i.e. will perform operation on binary values
+
+bitwise and
+bitwise or
+bitwise not 
+bitwise xor
+left shift 
+right shift
+
+
+
+
+
+
+
+
+ternary
