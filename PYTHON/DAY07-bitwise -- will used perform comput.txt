@@ -1,0 +1,11 @@
+bitwise :-- will used perform computer calculation 
+
+bitwise and (&)
+bitwise or  (|)
+bitwise not (~)
+bitwise xor (^)
+left shift  (<<)
+right shift (>>)  
+
+
+ternary operator :-- will used to reduce the code 

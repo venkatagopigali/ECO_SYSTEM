@@ -1,0 +1,16 @@
+conditional statements :-- will used to return a result based on condition 
+>>>will take decision based on condition 
+
+if             :-- here we have only true block 
+		>>>if condition:
+			# true block
+
+if else        :-- here we have two block one is true block and second one false block
+                >>>if condition:
+			# true block
+		   else:
+			# false block 
+if elif
+if elif else
+nested if 
+match

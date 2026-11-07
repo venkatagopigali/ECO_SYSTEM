@@ -1,0 +1,49 @@
+conditional statements :
+
+if
+if else
+if elif        :-- here we have more then one true block
+			>>>if condition1:
+				# true block 1
+			   elif condition2:
+				# true block2
+			   elif condition3:
+				# true block3
+if elif else  :-- here we have more then one true block and one false
+			>>>if condition1:
+				# true block 1
+			   elif condition2:
+				# true block2
+			   elif condition3:
+				# true block3
+				||
+				||
+			   else:
+				# false block
+
+
+netsed if    :-- here we can mention if another if
+
+			#if condition:
+				if  condition2:
+					# block of code
+				else:
+					# block
+			 else:
+				# block of code
+
+
+
+match         :-- 
+
+		match var:
+			case 1:
+				# block of code
+			case 2:
+				# block of code
+			case _:
+				#block of code
+
+
+
+

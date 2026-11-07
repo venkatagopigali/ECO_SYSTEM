@@ -1,0 +1,15 @@
+looping statement :-- will used to iterate the particular block of code 
+		iteration :-- the complete execution the code once
+
+range()   :- will used to return the sequence of number 
+		>>>range(start,stop,step)
+		>>>range(start,stop)   --> step -1
+		>>>range(stop)         ---> start --> 0 ,step --> 1
+
+'''
+
+if step +ve ,   end = stop-1
+if step -ve  ,  end = stop+1
+'''
+for       :-- will used  when we know the no.of iterations 
+while     :-- will used when we don't know the no.of iterations 
