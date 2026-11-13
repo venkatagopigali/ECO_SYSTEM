@@ -1,0 +1,5 @@
+controlling statements :-- will used to control the iterations 
+
+break       will stop  the iteration from the current iteration
+continue    will just skip the current iteration 
+pass        will used to represents empty block of code 

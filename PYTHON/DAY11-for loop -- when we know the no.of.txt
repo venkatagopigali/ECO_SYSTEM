@@ -1,0 +1,4 @@
+for loop :-- when we know the no.of iterations 
+
+>>>for iteration in sequence_data:
+	# block of code

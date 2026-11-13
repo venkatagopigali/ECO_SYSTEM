@@ -1,0 +1,6 @@
+while :-- when we don't know the no.of iteration
+
+initialize
+while condition:
+	#block of code 
+	# inc/dec

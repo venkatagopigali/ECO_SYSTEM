@@ -1,0 +1,7 @@
+nested for loops :----
+
+a for loop inside anethor for loop
+
+>>>for i in sequence:
+	for j in sequence:
+		# block of code
