@@ -1,0 +1,18 @@
+strings :-- collection of characters with enclosed by quotes
+	>>>character :-- a single letter it could be anything 			(alphabets,numbers,special symbols,spaces)
+
+we can represents in three ways:
+
+single quotes ('')
+double quotes ("")
+triple quotes (''' ''' or """ """)
+
+
+properties :
+
+immutable       :-- we cannot change the data without chaging memory location
+ordered 
+conactable 
+iterable 
+we can access the elements by using index and slicing
+string methods 

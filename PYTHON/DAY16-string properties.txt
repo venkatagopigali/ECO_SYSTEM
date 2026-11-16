@@ -1,0 +1,64 @@
+string properties :
+
+immutable
+ordered collection
+concatable     :-- we can add the two or more strings (+)
+iterable       :-- we can apply the looping statement i.e. we can access element by element 
+we can access the elements by using indexing and slicing
+
+indexing :-- we can used to access the single element at a time 
+----------------------------------------------------------------
+
+positive index   :-- will starts from zero 
+			>>>left to right 
+
+negative index   :-- will start from -1
+			>>>right to left 
+
+>>>variable_name[index_position]
+
+
+slicing :-- we can used to access the more then one element
+--------------------------------------------------------------
+[start:stop:step]   if step is +ve >>   end=stop-1
+		    if step is -ve >>   end=stop+1 
+[:stop:step]
+[start::step]
+[start:stop:]
+
+
+methods       :-- 
+
+upper()        :-- will convert the all characters into uppercase
+lower()        :-- will convert the all characters into lowercase
+capitalize()   :-- here the first character will be capital and remaining all small in entire string
+title()        :-- here every first letter in the word will be capital and remaining all small 
+swapcase()     :-- it will convert the lower case to upper case and upper case to lower case 
+
+len()          :-- will used to count the no.of characters in a string
+replace("old_text","new_text")  :-- will used to replace the old text with new text 
+strip()        :-- will remove the start and end spaces of string
+lstrip()       :-- will remove the left spaces
+rstrip()       :-- will remove the right spaces
+count()
+split()
+join()
+startswith()
+endswith()
+contains()
+ord()
+chr()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
