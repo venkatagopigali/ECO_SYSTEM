@@ -1,0 +1,31 @@
+list :-- collection of element 
+>>>mutable    :-- we can change the data without changing memory location
+>>>ordered collection
+>>>will allow the duplicates 
+>>>it is heterogeneous collection  
+
+>>>we can declare the list in [] or list() 
+
+>>>we can iterate the list 
+>>>we can access the elements with index and slicing 
+
+
+list methods :-- 
+----------------------------
+append()     :-- will used to add the elements at end of list
+extend()     :-- will used to add the elements at end of list 
+insert(i,e)  :-- will used to add a element in particular position  
+pop()        :-- will used to remove the last element of list
+pop(i)       :-- will used to remove the specific position of element 
+remove(e)    :-- will used to remove the specific element  
+index(e)     :-- will used to identify the position of element 
+len()        :-- will used to return the no.of elements 
+count()      :-- will used to count the particular element how many time repeated 
+copy()       :-- will used to copy list into another variable
+		>>>shallowcopy
+		>>>deepcopy
+clear()      :-- will used to remove all elements 
+sort()       :-- will used to set data into specific order either asc or desc 
+reverse()    :-- will used to reverse the list 
+
+

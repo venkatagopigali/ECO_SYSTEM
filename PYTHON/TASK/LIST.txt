@@ -1,0 +1,28 @@
+
+Basic Level
+Create a list of 5 integers and print it.
+Write a program to find the length of a list without using len().
+Access and print the last element of a list.
+Add an element to the end of a list.
+Insert an element at the 2nd position in a list.
+
+ Intermediate Level
+Remove a specific element from a list.
+Remove the element at index 3.
+Count how many times a specific element appears in a list.
+Sort a list in ascending and descending order.
+Reverse a list without using reverse() method.
+Find the maximum and minimum number in a list (without using max() and min()).
+Merge two lists into one.
+Remove duplicate elements from a list.
+Find the sum of all elements in a list (without using sum()).
+Create a list of even numbers between 1 and 50 using list comprehension.
+
+ Advanced Level
+Rotate a list to the right by k positions.
+Find the second largest number in a list.
+Check if a list is a palindrome.
+Flatten a nested list (e.g., [[1,2],[3,4],[5]]).
+Find the frequency of each element in a list and store it in a dictionary.
+
+
