@@ -1,0 +1,36 @@
+string methods :
+
+upper()
+lower()
+capitalize()
+title()
+swapcase()
+
+len()
+replace()
+strip()
+lstrip()
+rstrip()
+split()        :-- will used to split the string based on delimiter 
+join()         :-- will used to add the two or more string with delimiter 
+startswith()   :-- will check the string is start with particular character 
+endswith()     :-- will check the string is end with particular character
+ord()          :-- will convert the character into asci values
+chr()          :-- will convert the asci values into character 
+contains()     :-- will check the character is present or not in a string 
+count()        :-- will count the character how many times it is repeated 
+
+isupper()      :-- will return true when all characters in upper case
+islower()      :-- will return true when all characters in lower case 
+istitle()      :-- will return true when first character in every word is capital and rest all small case 
+isalpha()      :-- will return true when all are alphabets 
+isdigit()      :-- will return true when all characters are digits 
+isalnum()      :-- will return true when all characters either numbers or alphabets 
+
+
+
+
+
+
+
+
